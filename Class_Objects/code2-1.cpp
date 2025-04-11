@@ -8,7 +8,7 @@ private:
     float width;
 
 public:
-    // Member function to set the dimensions
+    // Member function
     void set_Dimensions(float l, float w)
     {
         length = l;
@@ -21,61 +21,60 @@ public:
         width = w;
     }
 
-    // Member function to calculate and return the area of the rectangle
-    float area()
+    // function to calculate the area of the rectangle
+    float area_of_rectangle()
     {
         return length * width;
     }
 
-    // Member function to calculate and return the perimeter of the rectangle
-    float perimeter()
+    // function to calculate the perimeter of the rectangle
+    float perimeter_of_rectangle()
     {
         return 2 * (length + width);
     }
 
-    void displayDimensions()
+    void display_Dimensions()
     {
-        cout << "Length: " << length << ", Width: " << width << endl;
+        cout << "Length of rectangle: " << length << ", Width of rectangle: " << width << endl;
     }
 };
 
 int main()
 {
-    // Create multiple Rectangle objects
-    Rectangle rect1, rect2;
+    Rectangle rectangle_1, rectangle_2;
+    rectangle_1.set_Dimensions(15, 20);
+    rectangle_2.set_Dimensions(17, 18);
 
-    // Initialize dimensions for the first rectangle
-    rect1.set_Dimensions(5, 3);
+    // display details of both rectangle
+    cout << "1: Rectangle length:15,width:20" << endl;
+    cout << "area is " << rectangle_1.area_of_rectangle() << endl;
+    cout << "perimeter is " << rectangle_1.perimeter_of_rectangle() << endl;
+    cout << "***********" << endl;
 
-    // Initialize dimensions for the second rectangle
-    rect2.set_Dimensions(7, 4);
-
-    // Display area and perimeter of the first rectangle
-    cout << "Rectangle 1 - Length: 5, Width: 3" << endl;
-    cout << "Area: " << rect1.area() << endl;
-    cout << "Perimeter: " << rect1.perimeter() << endl;
+    cout << "2: Rectangle Length: 17, Width: 18" << endl;
+    cout << "Area is" << rectangle_2.area_of_rectangle() << endl;
+    cout << "perimeter is " << rectangle_2.perimeter_of_rectangle() << endl;
     cout << endl;
 
-    // Display area and perimeter of the second rectangle
-    cout << "Rectangle 2 - Length: 7, Width: 4" << endl;
-    cout << "Area: " << rect2.area() << endl;
-    cout << "Perimeter: " << rect2.perimeter() << endl;
-    cout << endl;
+    cout << "***********" << endl;
+    cout << "***********" << endl;
 
-    // Update the dimensions of the first rectangle
-    rect1.update_dimensions(12, 8);
-    cout << "Rectangle 1 Updated Dimensions: ";
-    rect1.displayDimensions();
-    cout << "Area: " << rect1.area() << endl;
-    cout << "Perimeter: " << rect1.perimeter() << endl;
-    cout << endl;
+    // Updated dimensions of  rectangle
+    rectangle_1.update_dimensions(22, 23);
+    cout << "updated dimension of rectangle_1";
+    rectangle_1.display_Dimensions();
+    cout << "Updated Area: " << rectangle_1.area_of_rectangle() << endl;
+    cout << "Updated Perimeter: " << rectangle_2.perimeter_of_rectangle() << endl;
+    cout << "***********" << endl;
 
-    // Update the dimensions of the second rectangle
-    rect2.update_dimensions(32, 7);
-    cout << "Rectangle 2 Updated Dimensions: ";
-    rect2.displayDimensions();
-    cout << "Area: " << rect2.area() << endl;
-    cout << "Perimeter: " << rect2.perimeter() << endl;
+    rectangle_2.update_dimensions(33, 77);
+    cout << "updated dimension of rectangle_2 ";
+    rectangle_2.display_Dimensions();
+    cout << "Updated Area: " << rectangle_2.area_of_rectangle() << endl;
+    cout << "Updated Perimeter: " << rectangle_2.perimeter_of_rectangle() << endl;
+    cout << "***********" << endl;
+    cout << "***********" << endl;
 
+    cout << "DISU MAKADIYA_24CE062";
     return 0;
 }

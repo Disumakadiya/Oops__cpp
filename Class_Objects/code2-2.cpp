@@ -10,16 +10,14 @@ private:
     int marks[3];
 
 public:
-    // Default constructor
-    Student()
+    Student() // Default constructor
     {
         rollNumber = 0;
         name = "N/A";
         marks[0] = marks[1] = marks[2] = 0;
     }
 
-    // Parameterized constructor
-    Student(int rollNumber, string name, int marks[])
+    Student(int rollNumber, string name, int marks[]) // Parameterized constructor
     {
         this->rollNumber = rollNumber;
         this->name = name;
@@ -29,12 +27,11 @@ public:
         }
     }
 
-    // Function to display student details
-    void displayDetails()
+    void display_Details()
     {
-        cout << "Roll Number: " << rollNumber << endl;
-        cout << "Name: " << name << endl;
-        cout << "Marks: ";
+        cout << "Roll Number of student is : " << rollNumber << endl;
+        cout << "Name of student: " << name << endl;
+        cout << "Marks of student: ";
         for (int i = 0; i < 3; i++)
         {
             cout << marks[i] << " ";
@@ -42,60 +39,53 @@ public:
         cout << endl;
     }
 
-    // Function to calculate the average marks
-    float calculateAverage()
+    float calculate_Average()
     {
-        int total = 0;
+        int total_marks = 0;
         for (int i = 0; i < 3; i++)
         {
-            total += marks[i];
+            total_marks += marks[i];
         }
-        return total / 3.0f;
+        return total_marks / 3.0f;
     }
 };
 
 int main()
 {
-    int numStudents;
-
-    // Taking input for number of students
+    int number_Students;
     cout << "Enter the number of students: ";
-    cin >> numStudents;
+    cin >> number_Students;
 
-    // Create an array of Student objects
-    Student students[numStudents]; // Array of Student objects
+    Student students[number_Students]; // Array of Student objects
 
-    // Loop to take input for each student
-    for (int i = 0; i < numStudents; i++)
+    for (int i = 0; i < number_Students; i++)
     {
         int rollNumber;
-        string name;
+        string Name;
         int marks[3];
 
-        // Input for student details
-        cout << "\nEnter details for student " << i + 1 << ":\n";
-        cout << "Enter roll number: ";
+        cout << endl;
+        cout << "Enter details of  student " << i + 1 << ":\n";
+        cout << "Enter rollnumber: ";
         cin >> rollNumber;
         cin.ignore();
-        cout << "Enter name: ";
-        getline(cin, name);
-        cout << "Enter marks for 3 subjects: " << endl;
+        cout << "Enter name of student : ";
+        getline(cin, Name);
+        cout << "Enter marks  of students for 3 subjects: " << endl;
         for (int j = 0; j < 3; j++)
         {
             cin >> marks[j];
         }
-
-        // Create a Student object using parameterized constructor
-        students[i] = Student(rollNumber, name, marks);
+        students[i] = Student(rollNumber, Name, marks);
     }
 
-    // Display details and calculate average for each student
-    for (int i = 0; i < numStudents; i++)
+    // Display details
+    for (int i = 0; i < number_Students; i++)
     {
         cout << "\nStudent " << i + 1 << " Details:\n";
-        students[i].displayDetails();
-        cout << "Average Marks: " << students[i].calculateAverage() << endl;
-        cout << "-----------------------------\n";
+        students[i].display_Details();
+        cout << "Average Marks of students: " << students[i].calculate_Average() << endl;
+        cout << "*****************************\n";
     }
     cout << "DISU MAKADIYA" << "\n"
          << "24ce062" << endl;
