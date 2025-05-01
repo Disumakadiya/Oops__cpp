@@ -10,7 +10,7 @@ struct Transaction
 };
 
 // Base class
-class BankAccount 
+class BankAccount
 {
 protected:
     string accountNumber;
@@ -18,28 +18,28 @@ protected:
     vector<Transaction> transactionHistory;
 
 public:
-    BankAccount(string acc_Num, double initial_Balance):accountNumber(acc_Num), balance(initial_Balance) 
+    BankAccount(string acc_Num, double initial_Balance) : accountNumber(acc_Num), balance(initial_Balance)
     {
         cout << "BankAccount created: " << accountNumber << endl;
     }
 
-    virtual ~BankAccount()//virtual destructor
+    virtual ~BankAccount() // virtual destructor
     {
         cout << "BankAccount destroyed: " << accountNumber << endl;
     }
 
-    virtual void deposit(double amount) //to add amount and total deposit
+    virtual void deposit(double amount) // to add amount and total deposit
     {
         balance += amount;
-        transactionHistory.push_back({"Deposit", amount});//to add in history transactions
+        transactionHistory.push_back({"Deposit", amount}); // to add in history transactions
     }
 
     virtual bool withdraw(double amount)
-     {
+    {
         if (balance >= amount)
         {
             balance -= amount;
-            transactionHistory.push_back({"Withdraw", amount});
+            transactionHistory.push_back({"Withdraw", amount}); // added to transaction history
             return true;
         }
         cout << "Insufficient balance!" << endl;
@@ -47,38 +47,39 @@ public:
     }
 
     void undoLastTransaction()
-     {
-        if (!transactionHistory.empty()) 
+    {
+        if (!transactionHistory.empty())
         {
             Transaction last = transactionHistory.back();
             transactionHistory.pop_back();
-            if (last.type == "Deposit") balance -= last.amount;
-            else if (last.type == "Withdraw") balance += last.amount;
+            if (last.type == "Deposit")
+                balance -= last.amount;
+            else if (last.type == "Withdraw")
+                balance += last.amount;
             cout << "Undid last transaction: " << last.type << " of " << last.amount << endl;
         }
-         else 
+        else
         {
             cout << "No transaction to undo." << endl;
         }
     }
 
-    virtual void display() const 
+    virtual void display() const
     {
-        cout << "Account: " << accountNumber << ", Balance: " << balance << endl;
+        cout << "Account: " << accountNumber << ", Balance: " << balance << endl; // to display total balance after transaction
     }
 };
 
 // SavingsAccount class
-class SavingsAccount : public BankAccount 
+class SavingsAccount : public BankAccount
 {
 private:
-    double interestRate; 
+    double interestRate;
 
 public:
-    SavingsAccount(string accNum, double initial_Balance, double rate)
-        : BankAccount(accNum, initial_Balance), interestRate(rate) {}
+    SavingsAccount(string accNum, double initial_Balance, double rate) : BankAccount(accNum, initial_Balance), interestRate(rate) {}
 
-    void applyInterest() 
+    void applyInterest()
     {
         double interest = balance * interestRate;
         deposit(interest); // Reuse deposit method
@@ -99,13 +100,12 @@ private:
     double overdraftLimit;
 
 public:
-    CurrentAccount(string accNum, double initial_Balance, double overdraft)
-        : BankAccount(accNum, initial_Balance), overdraftLimit(overdraft) {}
+    CurrentAccount(string accNum, double initial_Balance, double overdraft) : BankAccount(accNum, initial_Balance), overdraftLimit(overdraft) {}
 
-    bool withdraw(double amount) override 
+    bool withdraw(double amount) override
     {
         if (balance + overdraftLimit >= amount)
-         {
+        {
             balance -= amount;
             transactionHistory.push_back({"Withdraw", amount});
             return true;
@@ -115,15 +115,15 @@ public:
     }
 
     void display() const override
-     {
+    {
         BankAccount::display();
         cout << "Account Type: Current, Overdraft Limit: " << overdraftLimit << endl;
     }
 };
 
-// Example usage
-int main() {
-    SavingsAccount sa("SA123", 1000.0, 0.05);
+int main()
+{
+    SavingsAccount sa("SA111", 1000.0, 0.05);
     sa.deposit(200);
     sa.withdraw(150);
     sa.applyInterest();
@@ -133,7 +133,7 @@ int main() {
 
     cout << "--------------------------" << endl;
 
-    CurrentAccount ca("CA456", 500.0, 300.0);
+    CurrentAccount ca("CT666", 500.0, 300.0);
     ca.deposit(100);
     ca.withdraw(700);
     ca.withdraw(300); // Should fail due to overdraft limit
