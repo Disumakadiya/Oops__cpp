@@ -40,7 +40,7 @@ public:
     void displayResults()
     {
         cout << "\nStored Results:" << endl;
-        for (int i = 0; i < results.size(); ++i) 
+        for (int i = 0; i < results.size(); ++i) //retirns no.of elements
         {
             cout << "Result " << i + 1 << ": " << results[i] << endl;
         }
@@ -60,3 +60,5 @@ int main()
     // Display all stored results
     calc.displayResults();
 }
+
+
