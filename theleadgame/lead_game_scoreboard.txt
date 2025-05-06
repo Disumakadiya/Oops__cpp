@@ -1,0 +1,19 @@
+
+=== New Match ===
+Players: disu pushti 
+Rounds: 2
+
+Round 1:
+disu: 34
+pushti: 67
+
+Round 2:
+disu: 30
+pushti: 40
+
+Final Scores:
+Player         Total      | Round-wise Scores
+--------------------------------------------------
+disu           64         | 34 30 
+pushti         107        | 67 40 
+Winner: pushti
