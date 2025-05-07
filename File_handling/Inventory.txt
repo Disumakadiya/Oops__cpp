@@ -1,0 +1,3 @@
+mango 3 67
+apple 4 89
+banana 5 90cherry 5 88

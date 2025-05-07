@@ -1,0 +1,4 @@
+disu 87 A
+pushti 76 B
+rutve 92 A
+Diya 64 C
