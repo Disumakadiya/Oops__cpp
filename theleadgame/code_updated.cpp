@@ -73,6 +73,7 @@ int main()
             }
 
             players[i].totalScore += score;
+            
             players[i].roundScores.push_back(score);
             fout << players[i].name << ": " << score << "\n";
         }
